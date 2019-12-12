@@ -1,0 +1,1882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Project_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category_Table">
+          <Key>
+            <PropertyRef Name="Catagory_ID" />
+          </Key>
+          <Property Name="Catagory_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Catagory_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Catagory_Description" Type="text" />
+          <Property Name="Catagory_Exist" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Company_Info_Table">
+          <Key>
+            <PropertyRef Name="Compans_ID" />
+          </Key>
+          <Property Name="Compans_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Catagory" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Address" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Company_Manager" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Company_Phone1" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Company_Phone2" Type="char" MaxLength="11" />
+          <Property Name="Company_Phone3" Type="char" MaxLength="11" />
+          <Property Name="Company_Logo" Type="text" />
+          <Property Name="MediaPath" Type="text" />
+        </EntityType>
+        <EntityType Name="Cus_Sup_Table">
+          <Key>
+            <PropertyRef Name="Cus_Sup_Mobile" />
+          </Key>
+          <Property Name="Cus_Sup_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Cus_Sup_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cus_Sup_Company" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cus_Sup_Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="Cus_Sup_Notes" Type="text" />
+          <Property Name="Cus_Sup_Account" Type="money" />
+          <Property Name="Flag" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Lenses_Size_Table">
+          <Key>
+            <PropertyRef Name="Lenses_SizeID" />
+          </Key>
+          <Property Name="Lenses_SizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_ID" Type="int" Nullable="false" />
+          <Property Name="Order_Date" Type="date" />
+          <Property Name="Recive_Date" Type="date" />
+          <Property Name="Lenses_Price" Type="money" />
+          <Property Name="Discount" Type="money" />
+          <Property Name="Total" Type="money" />
+          <Property Name="Pauid" Type="money" />
+          <Property Name="Reminng" Type="money" />
+          <Property Name="LS" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="LC" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="LX" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="RS" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="RC" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="RX" Type="nvarchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order_Details_Table">
+          <Key>
+            <PropertyRef Name="Order_Details_ID" />
+          </Key>
+          <Property Name="Order_Details_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="product_ID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="product_Price" Type="money" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="Discount" Type="money" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Order_Retern_Details_Table">
+          <Key>
+            <PropertyRef Name="Order_Retern_Details_ID" />
+          </Key>
+          <Property Name="Order_Retern_Details_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Retern_ID" Type="int" Nullable="false" />
+          <Property Name="product_ID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="product_Price" Type="money" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="Discount" Type="money" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Order_Retern_Table">
+          <Key>
+            <PropertyRef Name="Order_Retern_ID" />
+          </Key>
+          <Property Name="Order_Retern_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Payment_Method" Type="nvarchar" MaxLength="20" />
+          <Property Name="Client_or_Not" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Retern_Date" Type="date" Nullable="false" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Retern_Total" Type="money" Nullable="false" />
+          <Property Name="Retern_Pauid" Type="money" Nullable="false" />
+          <Property Name="Retern_Reming" Type="money" Nullable="false" />
+          <Property Name="Reterns_Notes" Type="varchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Order_Table">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Payment_Method" Type="nvarchar" MaxLength="20" />
+          <Property Name="Client_or_Not" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Order_Date" Type="date" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" />
+          <Property Name="Order_Total" Type="money" Nullable="false" />
+          <Property Name="Order_Pauid" Type="money" Nullable="false" />
+          <Property Name="Order_Reming" Type="money" />
+          <Property Name="Total_Discount" Type="money" />
+          <Property Name="Order_Notes" Type="varchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient_Table">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Patient_Mobile" Type="char" MaxLength="11" />
+          <Property Name="Patient_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Patient_Address" Type="text" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" />
+        </EntityType>
+        <EntityType Name="Pay_Rev_Table">
+          <Key>
+            <PropertyRef Name="Pay_Rev_ID" />
+          </Key>
+          <Property Name="Pay_Rev_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_Rev_Amount" Type="money" Nullable="false" />
+          <Property Name="Pay_Rev_Date" Type="date" Nullable="false" />
+          <Property Name="Pay_Rev_Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Pay_Rev_Type_ID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="12" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Pay_Rev_Type_Table">
+          <Key>
+            <PropertyRef Name="Pay_Rev_Type_ID" />
+          </Key>
+          <Property Name="Pay_Rev_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pay_Rev_Type_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Pay_Rev_Type_Description" Type="text" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="10" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Payback_Order_Retern_Table">
+          <Key>
+            <PropertyRef Name="Payback_Order_Retern_ID" />
+          </Key>
+          <Property Name="Payback_Order_Retern_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_Retern_ID" Type="int" Nullable="false" />
+          <Property Name="Payback_Order_Retern_Value" Type="money" Nullable="false" />
+          <Property Name="Payback_Order_Retern_Date" Type="date" Nullable="false" />
+          <Property Name="Last_Order_Retern_Reming" Type="money" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Payback_Order_Table">
+          <Key>
+            <PropertyRef Name="Payback_Order_ID" />
+          </Key>
+          <Property Name="Payback_Order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_ID" Type="int" Nullable="false" />
+          <Property Name="Payback_Value" Type="money" Nullable="false" />
+          <Property Name="Payback_Date" Type="date" Nullable="false" />
+          <Property Name="Last_Reming" Type="money" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+          <Property Name="PayBackFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="Payback_Purch_Retern_Table">
+          <Key>
+            <PropertyRef Name="PayBack_Purch_Retern_ID" />
+          </Key>
+          <Property Name="PayBack_Purch_Retern_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purch_Retern_ID" Type="int" Nullable="false" />
+          <Property Name="PayBack_Purch_Retern_Value" Type="money" Nullable="false" />
+          <Property Name="PayBack_Purch_Retern_Date" Type="date" Nullable="false" />
+          <Property Name="Last_Reming" Type="money" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="PayBack_Purchases_Table">
+          <Key>
+            <PropertyRef Name="PayBack_Purch_ID" />
+          </Key>
+          <Property Name="PayBack_Purch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purchases_ID" Type="int" Nullable="false" />
+          <Property Name="PayBack_Purch_Value" Type="money" Nullable="false" />
+          <Property Name="PayBack_Purch_Date" Type="date" Nullable="false" />
+          <Property Name="Last_Reming" Type="money" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_Table">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="BareCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="Catagory_ID" Type="int" Nullable="false" />
+          <Property Name="Unite_ID" Type="int" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Product_Exist" Type="int" Nullable="false" />
+          <Property Name="Product_Image" Type="text" />
+          <Property Name="AlarmQuantity" Type="int" />
+          <Property Name="Product_Size" Type="nvarchar" MaxLength="4" />
+          <Property Name="SProduct_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SQuantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Purch_Retern_Details_Table">
+          <Key>
+            <PropertyRef Name="Purch_Retern_Details_ID" />
+          </Key>
+          <Property Name="Purch_Retern_Details_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purch_Retern_ID" Type="int" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Expire_Date" Type="date" />
+          <Property Name="ExpireOrNot" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Purch_Price" Type="money" Nullable="false" />
+          <Property Name="User_Price" Type="money" />
+          <Property Name="Dealer_Price" Type="money" Nullable="false" />
+          <Property Name="Purch_Total" Type="money" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Purch_Retern_Table">
+          <Key>
+            <PropertyRef Name="Purch_Retern_ID" />
+          </Key>
+          <Property Name="Purch_Retern_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Addation_Date" Type="date" Nullable="false" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Purch_Retern_Total" Type="money" Nullable="false" />
+          <Property Name="Purch_Retern_Pauid" Type="money" Nullable="false" />
+          <Property Name="Purch_Retern_Remin" Type="money" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Purchases_Details_Table">
+          <Key>
+            <PropertyRef Name="Purchases_Details_ID" />
+          </Key>
+          <Property Name="Purchases_Details_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purchases_ID" Type="int" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Expire_Date" Type="varchar" MaxLength="20" />
+          <Property Name="ExpireOrNot" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Purch_Price" Type="money" Nullable="false" />
+          <Property Name="User_Price" Type="money" />
+          <Property Name="Dealer_Price" Type="money" Nullable="false" />
+          <Property Name="Purch_Total" Type="money" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Purchases_Table">
+          <Key>
+            <PropertyRef Name="Purchases_ID" />
+          </Key>
+          <Property Name="Purchases_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Addation_Date" Type="date" Nullable="false" />
+          <Property Name="Cus_Sup_Mobile" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Purch_Total" Type="money" Nullable="false" />
+          <Property Name="Purch__Pauid" Type="money" Nullable="false" />
+          <Property Name="Purch_Remin" Type="money" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Safe_Table">
+          <Key>
+            <PropertyRef Name="Safe_ID" />
+          </Key>
+          <Property Name="Safe_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Safe_Amount" Type="money" Nullable="false" />
+          <Property Name="Addation_Date" Type="date" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Stock_Purch_Table">
+          <Key>
+            <PropertyRef Name="Stock_Purch_ID" />
+          </Key>
+          <Property Name="Stock_Purch_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purchases_ID" Type="int" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Purch_Accept_States" Type="int" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="Stock_Quantity_Table">
+          <Key>
+            <PropertyRef Name="Stock_Quantity_ID" />
+          </Key>
+          <Property Name="Stock_Quantity_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="System_Users_Table">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sys_Username" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="Sys_Pass" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Sys_User_Permission" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Deleted" Type="int" />
+          <Property Name="Sys_User_Imagr_Path" Type="text" />
+        </EntityType>
+        <EntityType Name="Unite_Table">
+          <Key>
+            <PropertyRef Name="Unite_ID" />
+          </Key>
+          <Property Name="Unite_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Unite_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Unite_Description" Type="text" />
+          <Property Name="Deleted" Type="int" />
+        </EntityType>
+        <Association Name="FK_Lenses_Size_Table_Patient_Table">
+          <End Role="Patient_Table" Type="Self.Patient_Table" Multiplicity="1" />
+          <End Role="Lenses_Size_Table" Type="Self.Lenses_Size_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Table">
+              <PropertyRef Name="Patient_ID" />
+            </Principal>
+            <Dependent Role="Lenses_Size_Table">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Order_Details_Table" Type="Self.Order_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Order_Details_Table">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Order_Details_Table" Type="Self.Order_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Order_Details_Table">
+              <PropertyRef Name="product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Details_Table_Order_Retern_Table">
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Details_Table" Type="Self.Order_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Principal>
+            <Dependent Role="Order_Retern_Details_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Details_Table" Type="Self.Order_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Order_Retern_Details_Table">
+              <PropertyRef Name="product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Order_Retern_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="0..1" />
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Order_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="0..1" />
+          <End Role="Patient_Table" Type="Self.Patient_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Patient_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pay_Rev_Table_Pay_Rev_Type_Table">
+          <End Role="Pay_Rev_Type_Table" Type="Self.Pay_Rev_Type_Table" Multiplicity="0..1" />
+          <End Role="Pay_Rev_Table" Type="Self.Pay_Rev_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pay_Rev_Type_Table">
+              <PropertyRef Name="Pay_Rev_Type_ID" />
+            </Principal>
+            <Dependent Role="Pay_Rev_Table">
+              <PropertyRef Name="Pay_Rev_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Order_Retern_Table_Order_Retern_Table">
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="1" />
+          <End Role="Payback_Order_Retern_Table" Type="Self.Payback_Order_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Principal>
+            <Dependent Role="Payback_Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Purch_Retern_Table_Purch_Retern_Table">
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="1" />
+          <End Role="Payback_Purch_Retern_Table" Type="Self.Payback_Purch_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Principal>
+            <Dependent Role="Payback_Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PayBack_Purchases_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="PayBack_Purchases_Table" Type="Self.PayBack_Purchases_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="PayBack_Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Payback_Order_Table" Type="Self.Payback_Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Payback_Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Table_Category_Table">
+          <End Role="Category_Table" Type="Self.Category_Table" Multiplicity="1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Table">
+              <PropertyRef Name="Catagory_ID" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="Catagory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Table_Unite_Table">
+          <End Role="Unite_Table" Type="Self.Unite_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unite_Table">
+              <PropertyRef Name="Unite_ID" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="Unite_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purch_Retern_Details_Table_Purch_Retern_Table">
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="1" />
+          <End Role="Purch_Retern_Details_Table" Type="Self.Purch_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Principal>
+            <Dependent Role="Purch_Retern_Details_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purch_Retern_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="1" />
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Purch_Retern_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Purchases_Details_Table" Type="Self.Purchases_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Purchases_Details_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Details_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="Purchases_Details_Table" Type="Self.Purchases_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="Purchases_Details_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Purch_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Stock_Purch_Table" Type="Self.Stock_Purch_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Stock_Purch_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Purch_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="Stock_Purch_Table" Type="Self.Stock_Purch_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="Stock_Purch_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Quantity_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Stock_Quantity_Table" Type="Self.Stock_Quantity_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Stock_Quantity_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_DBModelStoreContainer">
+          <EntitySet Name="Category_Table" EntityType="Self.Category_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company_Info_Table" EntityType="Self.Company_Info_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cus_Sup_Table" EntityType="Self.Cus_Sup_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lenses_Size_Table" EntityType="Self.Lenses_Size_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Details_Table" EntityType="Self.Order_Details_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Retern_Details_Table" EntityType="Self.Order_Retern_Details_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Retern_Table" EntityType="Self.Order_Retern_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Table" EntityType="Self.Order_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient_Table" EntityType="Self.Patient_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pay_Rev_Table" EntityType="Self.Pay_Rev_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pay_Rev_Type_Table" EntityType="Self.Pay_Rev_Type_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payback_Order_Retern_Table" EntityType="Self.Payback_Order_Retern_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payback_Order_Table" EntityType="Self.Payback_Order_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payback_Purch_Retern_Table" EntityType="Self.Payback_Purch_Retern_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayBack_Purchases_Table" EntityType="Self.PayBack_Purchases_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Table" EntityType="Self.Product_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purch_Retern_Details_Table" EntityType="Self.Purch_Retern_Details_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purch_Retern_Table" EntityType="Self.Purch_Retern_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases_Details_Table" EntityType="Self.Purchases_Details_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases_Table" EntityType="Self.Purchases_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Safe_Table" EntityType="Self.Safe_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_Purch_Table" EntityType="Self.Stock_Purch_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_Quantity_Table" EntityType="Self.Stock_Quantity_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="System_Users_Table" EntityType="Self.System_Users_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unite_Table" EntityType="Self.Unite_Table" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Lenses_Size_Table_Patient_Table" Association="Self.FK_Lenses_Size_Table_Patient_Table">
+            <End Role="Patient_Table" EntitySet="Patient_Table" />
+            <End Role="Lenses_Size_Table" EntitySet="Lenses_Size_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Table_Order_Table" Association="Self.FK_Order_Details_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Order_Details_Table" EntitySet="Order_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Table_Product_Table" Association="Self.FK_Order_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Order_Details_Table" EntitySet="Order_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Details_Table_Order_Retern_Table" Association="Self.FK_Order_Retern_Details_Table_Order_Retern_Table">
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+            <End Role="Order_Retern_Details_Table" EntitySet="Order_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Details_Table_Product_Table" Association="Self.FK_Order_Retern_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Order_Retern_Details_Table" EntitySet="Order_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Table_Cus_Sup_Table" Association="Self.FK_Order_Retern_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Table_Cus_Sup_Table" Association="Self.FK_Order_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Order_Table" EntitySet="Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Table_Cus_Sup_Table" Association="Self.FK_Patient_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Patient_Table" EntitySet="Patient_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pay_Rev_Table_Pay_Rev_Type_Table" Association="Self.FK_Pay_Rev_Table_Pay_Rev_Type_Table">
+            <End Role="Pay_Rev_Type_Table" EntitySet="Pay_Rev_Type_Table" />
+            <End Role="Pay_Rev_Table" EntitySet="Pay_Rev_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Order_Retern_Table_Order_Retern_Table" Association="Self.FK_Payback_Order_Retern_Table_Order_Retern_Table">
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+            <End Role="Payback_Order_Retern_Table" EntitySet="Payback_Order_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Purch_Retern_Table_Purch_Retern_Table" Association="Self.FK_Payback_Purch_Retern_Table_Purch_Retern_Table">
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+            <End Role="Payback_Purch_Retern_Table" EntitySet="Payback_Purch_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PayBack_Purchases_Table_Purchases_Table" Association="Self.FK_PayBack_Purchases_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="PayBack_Purchases_Table" EntitySet="PayBack_Purchases_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Table_Order_Table" Association="Self.FK_Payback_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Payback_Order_Table" EntitySet="Payback_Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Table_Category_Table" Association="Self.FK_Product_Table_Category_Table">
+            <End Role="Category_Table" EntitySet="Category_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Table_Unite_Table" Association="Self.FK_Product_Table_Unite_Table">
+            <End Role="Unite_Table" EntitySet="Unite_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purch_Retern_Details_Table_Purch_Retern_Table" Association="Self.FK_Purch_Retern_Details_Table_Purch_Retern_Table">
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+            <End Role="Purch_Retern_Details_Table" EntitySet="Purch_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purch_Retern_Table_Cus_Sup_Table" Association="Self.FK_Purch_Retern_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Details_Table_Product_Table" Association="Self.FK_Purchases_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Purchases_Details_Table" EntitySet="Purchases_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Details_Table_Purchases_Table" Association="Self.FK_Purchases_Details_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="Purchases_Details_Table" EntitySet="Purchases_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Purch_Table_Product_Table" Association="Self.FK_Stock_Purch_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Stock_Purch_Table" EntitySet="Stock_Purch_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Purch_Table_Purchases_Table" Association="Self.FK_Stock_Purch_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="Stock_Purch_Table" EntitySet="Stock_Purch_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Quantity_Table_Product_Table" Association="Self.FK_Stock_Quantity_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Stock_Quantity_Table" EntitySet="Stock_Quantity_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category_Table">
+          <Key>
+            <PropertyRef Name="Catagory_ID" />
+          </Key>
+          <Property Name="Catagory_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Catagory_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Catagory_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Catagory_Exist" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Product_Table_Category_Table" FromRole="Category_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Company_Info_Table">
+          <Key>
+            <PropertyRef Name="Compans_ID" />
+          </Key>
+          <Property Name="Compans_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Catagory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Manager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Phone1" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Company_Phone2" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Company_Phone3" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Company_Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MediaPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cus_Sup_Table">
+          <Key>
+            <PropertyRef Name="Cus_Sup_Mobile" />
+          </Key>
+          <Property Name="Cus_Sup_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Cus_Sup_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cus_Sup_Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cus_Sup_Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Cus_Sup_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cus_Sup_Account" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Flag" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Order_Retern_Table" Relationship="Self.FK_Order_Retern_Table_Cus_Sup_Table" FromRole="Cus_Sup_Table" ToRole="Order_Retern_Table" />
+          <NavigationProperty Name="Order_Table" Relationship="Self.FK_Order_Table_Cus_Sup_Table" FromRole="Cus_Sup_Table" ToRole="Order_Table" />
+          <NavigationProperty Name="Patient_Table" Relationship="Self.FK_Patient_Table_Cus_Sup_Table" FromRole="Cus_Sup_Table" ToRole="Patient_Table" />
+          <NavigationProperty Name="Purch_Retern_Table" Relationship="Self.FK_Purch_Retern_Table_Cus_Sup_Table" FromRole="Cus_Sup_Table" ToRole="Purch_Retern_Table" />
+        </EntityType>
+        <EntityType Name="Lenses_Size_Table">
+          <Key>
+            <PropertyRef Name="Lenses_SizeID" />
+          </Key>
+          <Property Name="Lenses_SizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" />
+          <Property Name="Order_Date" Type="DateTime" Precision="0" />
+          <Property Name="Recive_Date" Type="DateTime" Precision="0" />
+          <Property Name="Lenses_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Pauid" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Reminng" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LS" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LC" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LX" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RS" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RC" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RX" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Patient_Table" Relationship="Self.FK_Lenses_Size_Table_Patient_Table" FromRole="Lenses_Size_Table" ToRole="Patient_Table" />
+        </EntityType>
+        <EntityType Name="Order_Details_Table">
+          <Key>
+            <PropertyRef Name="Order_Details_ID" />
+          </Key>
+          <Property Name="Order_Details_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="product_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Order_Table" Relationship="Self.FK_Order_Details_Table_Order_Table" FromRole="Order_Details_Table" ToRole="Order_Table" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Order_Details_Table_Product_Table" FromRole="Order_Details_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Order_Retern_Details_Table">
+          <Key>
+            <PropertyRef Name="Order_Retern_Details_ID" />
+          </Key>
+          <Property Name="Order_Retern_Details_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Retern_ID" Type="Int32" Nullable="false" />
+          <Property Name="product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="product_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Order_Retern_Table" Relationship="Self.FK_Order_Retern_Details_Table_Order_Retern_Table" FromRole="Order_Retern_Details_Table" ToRole="Order_Retern_Table" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Order_Retern_Details_Table_Product_Table" FromRole="Order_Retern_Details_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Order_Retern_Table">
+          <Key>
+            <PropertyRef Name="Order_Retern_ID" />
+          </Key>
+          <Property Name="Order_Retern_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Payment_Method" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Client_or_Not" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Retern_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Retern_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Retern_Pauid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Retern_Reming" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Reterns_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Cus_Sup_Table" Relationship="Self.FK_Order_Retern_Table_Cus_Sup_Table" FromRole="Order_Retern_Table" ToRole="Cus_Sup_Table" />
+          <NavigationProperty Name="Order_Retern_Details_Table" Relationship="Self.FK_Order_Retern_Details_Table_Order_Retern_Table" FromRole="Order_Retern_Table" ToRole="Order_Retern_Details_Table" />
+          <NavigationProperty Name="Payback_Order_Retern_Table" Relationship="Self.FK_Payback_Order_Retern_Table_Order_Retern_Table" FromRole="Order_Retern_Table" ToRole="Payback_Order_Retern_Table" />
+        </EntityType>
+        <EntityType Name="Order_Table">
+          <Key>
+            <PropertyRef Name="Order_ID" />
+          </Key>
+          <Property Name="Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Payment_Method" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Client_or_Not" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order_Date" Type="DateTime" Precision="0" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Order_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Order_Pauid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Order_Reming" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total_Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Order_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Cus_Sup_Table" Relationship="Self.FK_Order_Table_Cus_Sup_Table" FromRole="Order_Table" ToRole="Cus_Sup_Table" />
+          <NavigationProperty Name="Order_Details_Table" Relationship="Self.FK_Order_Details_Table_Order_Table" FromRole="Order_Table" ToRole="Order_Details_Table" />
+          <NavigationProperty Name="Payback_Order_Table" Relationship="Self.FK_Payback_Table_Order_Table" FromRole="Order_Table" ToRole="Payback_Order_Table" />
+        </EntityType>
+        <EntityType Name="Patient_Table">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Patient_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Patient_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Patient_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Cus_Sup_Table" Relationship="Self.FK_Patient_Table_Cus_Sup_Table" FromRole="Patient_Table" ToRole="Cus_Sup_Table" />
+          <NavigationProperty Name="Lenses_Size_Table" Relationship="Self.FK_Lenses_Size_Table_Patient_Table" FromRole="Patient_Table" ToRole="Lenses_Size_Table" />
+        </EntityType>
+        <EntityType Name="Pay_Rev_Table">
+          <Key>
+            <PropertyRef Name="Pay_Rev_ID" />
+          </Key>
+          <Property Name="Pay_Rev_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_Rev_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Pay_Rev_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pay_Rev_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pay_Rev_Type_ID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Flag" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Pay_Rev_Type_Table" Relationship="Self.FK_Pay_Rev_Table_Pay_Rev_Type_Table" FromRole="Pay_Rev_Table" ToRole="Pay_Rev_Type_Table" />
+        </EntityType>
+        <EntityType Name="Pay_Rev_Type_Table">
+          <Key>
+            <PropertyRef Name="Pay_Rev_Type_ID" />
+          </Key>
+          <Property Name="Pay_Rev_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pay_Rev_Type_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pay_Rev_Type_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Flag" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Pay_Rev_Table" Relationship="Self.FK_Pay_Rev_Table_Pay_Rev_Type_Table" FromRole="Pay_Rev_Type_Table" ToRole="Pay_Rev_Table" />
+        </EntityType>
+        <EntityType Name="Payback_Order_Retern_Table">
+          <Key>
+            <PropertyRef Name="Payback_Order_Retern_ID" />
+          </Key>
+          <Property Name="Payback_Order_Retern_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_Retern_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payback_Order_Retern_Value" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Payback_Order_Retern_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Last_Order_Retern_Reming" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Order_Retern_Table" Relationship="Self.FK_Payback_Order_Retern_Table_Order_Retern_Table" FromRole="Payback_Order_Retern_Table" ToRole="Order_Retern_Table" />
+        </EntityType>
+        <EntityType Name="Payback_Order_Table">
+          <Key>
+            <PropertyRef Name="Payback_Order_ID" />
+          </Key>
+          <Property Name="Payback_Order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payback_Value" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Payback_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Last_Reming" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <Property Name="PayBackFlag" Type="Int32" />
+          <NavigationProperty Name="Order_Table" Relationship="Self.FK_Payback_Table_Order_Table" FromRole="Payback_Order_Table" ToRole="Order_Table" />
+        </EntityType>
+        <EntityType Name="Payback_Purch_Retern_Table">
+          <Key>
+            <PropertyRef Name="PayBack_Purch_Retern_ID" />
+          </Key>
+          <Property Name="PayBack_Purch_Retern_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purch_Retern_ID" Type="Int32" Nullable="false" />
+          <Property Name="PayBack_Purch_Retern_Value" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PayBack_Purch_Retern_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Last_Reming" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Purch_Retern_Table" Relationship="Self.FK_Payback_Purch_Retern_Table_Purch_Retern_Table" FromRole="Payback_Purch_Retern_Table" ToRole="Purch_Retern_Table" />
+        </EntityType>
+        <EntityType Name="PayBack_Purchases_Table">
+          <Key>
+            <PropertyRef Name="PayBack_Purch_ID" />
+          </Key>
+          <Property Name="PayBack_Purch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purchases_ID" Type="Int32" Nullable="false" />
+          <Property Name="PayBack_Purch_Value" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PayBack_Purch_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Last_Reming" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Purchases_Table" Relationship="Self.FK_PayBack_Purchases_Table_Purchases_Table" FromRole="PayBack_Purchases_Table" ToRole="Purchases_Table" />
+        </EntityType>
+        <EntityType Name="Product_Table">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BareCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Catagory_ID" Type="Int32" Nullable="false" />
+          <Property Name="Unite_ID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Product_Exist" Type="Int32" Nullable="false" />
+          <Property Name="Product_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmQuantity" Type="Int32" />
+          <Property Name="Product_Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="SProduct_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SQuantity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Category_Table" Relationship="Self.FK_Product_Table_Category_Table" FromRole="Product_Table" ToRole="Category_Table" />
+          <NavigationProperty Name="Order_Details_Table" Relationship="Self.FK_Order_Details_Table_Product_Table" FromRole="Product_Table" ToRole="Order_Details_Table" />
+          <NavigationProperty Name="Order_Retern_Details_Table" Relationship="Self.FK_Order_Retern_Details_Table_Product_Table" FromRole="Product_Table" ToRole="Order_Retern_Details_Table" />
+          <NavigationProperty Name="Unite_Table" Relationship="Self.FK_Product_Table_Unite_Table" FromRole="Product_Table" ToRole="Unite_Table" />
+          <NavigationProperty Name="Purchases_Details_Table" Relationship="Self.FK_Purchases_Details_Table_Product_Table" FromRole="Product_Table" ToRole="Purchases_Details_Table" />
+          <NavigationProperty Name="Stock_Purch_Table" Relationship="Self.FK_Stock_Purch_Table_Product_Table" FromRole="Product_Table" ToRole="Stock_Purch_Table" />
+          <NavigationProperty Name="Stock_Quantity_Table" Relationship="Self.FK_Stock_Quantity_Table_Product_Table" FromRole="Product_Table" ToRole="Stock_Quantity_Table" />
+        </EntityType>
+        <EntityType Name="Purch_Retern_Details_Table">
+          <Key>
+            <PropertyRef Name="Purch_Retern_Details_ID" />
+          </Key>
+          <Property Name="Purch_Retern_Details_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purch_Retern_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Expire_Date" Type="DateTime" Precision="0" />
+          <Property Name="ExpireOrNot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Purch_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="User_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Dealer_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Purch_Retern_Table" Relationship="Self.FK_Purch_Retern_Details_Table_Purch_Retern_Table" FromRole="Purch_Retern_Details_Table" ToRole="Purch_Retern_Table" />
+        </EntityType>
+        <EntityType Name="Purch_Retern_Table">
+          <Key>
+            <PropertyRef Name="Purch_Retern_ID" />
+          </Key>
+          <Property Name="Purch_Retern_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Addation_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Purch_Retern_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch_Retern_Pauid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch_Retern_Remin" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Cus_Sup_Table" Relationship="Self.FK_Purch_Retern_Table_Cus_Sup_Table" FromRole="Purch_Retern_Table" ToRole="Cus_Sup_Table" />
+          <NavigationProperty Name="Payback_Purch_Retern_Table" Relationship="Self.FK_Payback_Purch_Retern_Table_Purch_Retern_Table" FromRole="Purch_Retern_Table" ToRole="Payback_Purch_Retern_Table" />
+          <NavigationProperty Name="Purch_Retern_Details_Table" Relationship="Self.FK_Purch_Retern_Details_Table_Purch_Retern_Table" FromRole="Purch_Retern_Table" ToRole="Purch_Retern_Details_Table" />
+        </EntityType>
+        <EntityType Name="Purchases_Details_Table">
+          <Key>
+            <PropertyRef Name="Purchases_Details_ID" />
+          </Key>
+          <Property Name="Purchases_Details_ID" Type="Int32" Nullable="false" />
+          <Property Name="Purchases_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Expire_Date" Type="String" Nullable="true" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ExpireOrNot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Purch_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="User_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Dealer_Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Purchases_Details_Table_Product_Table" FromRole="Purchases_Details_Table" ToRole="Product_Table" />
+          <NavigationProperty Name="Purchases_Table" Relationship="Self.FK_Purchases_Details_Table_Purchases_Table" FromRole="Purchases_Details_Table" ToRole="Purchases_Table" />
+        </EntityType>
+        <EntityType Name="Purchases_Table">
+          <Key>
+            <PropertyRef Name="Purchases_ID" />
+          </Key>
+          <Property Name="Purchases_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Addation_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cus_Sup_Mobile" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Purch_Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch__Pauid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Purch_Remin" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="PayBack_Purchases_Table" Relationship="Self.FK_PayBack_Purchases_Table_Purchases_Table" FromRole="Purchases_Table" ToRole="PayBack_Purchases_Table" />
+          <NavigationProperty Name="Purchases_Details_Table" Relationship="Self.FK_Purchases_Details_Table_Purchases_Table" FromRole="Purchases_Table" ToRole="Purchases_Details_Table" />
+          <NavigationProperty Name="Stock_Purch_Table" Relationship="Self.FK_Stock_Purch_Table_Purchases_Table" FromRole="Purchases_Table" ToRole="Stock_Purch_Table" />
+        </EntityType>
+        <EntityType Name="Safe_Table">
+          <Key>
+            <PropertyRef Name="Safe_ID" />
+          </Key>
+          <Property Name="Safe_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Safe_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Addation_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Deleted" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Stock_Purch_Table">
+          <Key>
+            <PropertyRef Name="Stock_Purch_ID" />
+          </Key>
+          <Property Name="Stock_Purch_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purchases_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Purch_Accept_States" Type="Int32" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Stock_Purch_Table_Product_Table" FromRole="Stock_Purch_Table" ToRole="Product_Table" />
+          <NavigationProperty Name="Purchases_Table" Relationship="Self.FK_Stock_Purch_Table_Purchases_Table" FromRole="Stock_Purch_Table" ToRole="Purchases_Table" />
+        </EntityType>
+        <EntityType Name="Stock_Quantity_Table">
+          <Key>
+            <PropertyRef Name="Stock_Quantity_ID" />
+          </Key>
+          <Property Name="Stock_Quantity_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Stock_Quantity_Table_Product_Table" FromRole="Stock_Quantity_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="System_Users_Table">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sys_Username" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Sys_Pass" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Sys_User_Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <Property Name="Sys_User_Imagr_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Unite_Table">
+          <Key>
+            <PropertyRef Name="Unite_ID" />
+          </Key>
+          <Property Name="Unite_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Unite_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unite_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.FK_Product_Table_Unite_Table" FromRole="Unite_Table" ToRole="Product_Table" />
+        </EntityType>
+        <Association Name="FK_Product_Table_Category_Table">
+          <End Role="Category_Table" Type="Self.Category_Table" Multiplicity="1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Table">
+              <PropertyRef Name="Catagory_ID" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="Catagory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Order_Retern_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="0..1" />
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Order_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="0..1" />
+          <End Role="Patient_Table" Type="Self.Patient_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Patient_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purch_Retern_Table_Cus_Sup_Table">
+          <End Role="Cus_Sup_Table" Type="Self.Cus_Sup_Table" Multiplicity="1" />
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cus_Sup_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Principal>
+            <Dependent Role="Purch_Retern_Table">
+              <PropertyRef Name="Cus_Sup_Mobile" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lenses_Size_Table_Patient_Table">
+          <End Role="Patient_Table" Type="Self.Patient_Table" Multiplicity="1" />
+          <End Role="Lenses_Size_Table" Type="Self.Lenses_Size_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient_Table">
+              <PropertyRef Name="Patient_ID" />
+            </Principal>
+            <Dependent Role="Lenses_Size_Table">
+              <PropertyRef Name="Patient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Order_Details_Table" Type="Self.Order_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Order_Details_Table">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Order_Details_Table" Type="Self.Order_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Order_Details_Table">
+              <PropertyRef Name="product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Details_Table_Order_Retern_Table">
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Details_Table" Type="Self.Order_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Principal>
+            <Dependent Role="Order_Retern_Details_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Retern_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Order_Retern_Details_Table" Type="Self.Order_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Order_Retern_Details_Table">
+              <PropertyRef Name="product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Order_Retern_Table_Order_Retern_Table">
+          <End Role="Order_Retern_Table" Type="Self.Order_Retern_Table" Multiplicity="1" />
+          <End Role="Payback_Order_Retern_Table" Type="Self.Payback_Order_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Principal>
+            <Dependent Role="Payback_Order_Retern_Table">
+              <PropertyRef Name="Order_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Table_Order_Table">
+          <End Role="Order_Table" Type="Self.Order_Table" Multiplicity="1" />
+          <End Role="Payback_Order_Table" Type="Self.Payback_Order_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Principal>
+            <Dependent Role="Payback_Order_Table">
+              <PropertyRef Name="Order_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pay_Rev_Table_Pay_Rev_Type_Table">
+          <End Role="Pay_Rev_Type_Table" Type="Self.Pay_Rev_Type_Table" Multiplicity="0..1" />
+          <End Role="Pay_Rev_Table" Type="Self.Pay_Rev_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pay_Rev_Type_Table">
+              <PropertyRef Name="Pay_Rev_Type_ID" />
+            </Principal>
+            <Dependent Role="Pay_Rev_Table">
+              <PropertyRef Name="Pay_Rev_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payback_Purch_Retern_Table_Purch_Retern_Table">
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="1" />
+          <End Role="Payback_Purch_Retern_Table" Type="Self.Payback_Purch_Retern_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Principal>
+            <Dependent Role="Payback_Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PayBack_Purchases_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="PayBack_Purchases_Table" Type="Self.PayBack_Purchases_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="PayBack_Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Table_Unite_Table">
+          <End Role="Unite_Table" Type="Self.Unite_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unite_Table">
+              <PropertyRef Name="Unite_ID" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="Unite_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Details_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Purchases_Details_Table" Type="Self.Purchases_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Purchases_Details_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Purch_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Stock_Purch_Table" Type="Self.Stock_Purch_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Stock_Purch_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Quantity_Table_Product_Table">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Stock_Quantity_Table" Type="Self.Stock_Quantity_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="Stock_Quantity_Table">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purch_Retern_Details_Table_Purch_Retern_Table">
+          <End Role="Purch_Retern_Table" Type="Self.Purch_Retern_Table" Multiplicity="1" />
+          <End Role="Purch_Retern_Details_Table" Type="Self.Purch_Retern_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purch_Retern_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Principal>
+            <Dependent Role="Purch_Retern_Details_Table">
+              <PropertyRef Name="Purch_Retern_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Details_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="Purchases_Details_Table" Type="Self.Purchases_Details_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="Purchases_Details_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Purch_Table_Purchases_Table">
+          <End Role="Purchases_Table" Type="Self.Purchases_Table" Multiplicity="1" />
+          <End Role="Stock_Purch_Table" Type="Self.Stock_Purch_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purchases_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Principal>
+            <Dependent Role="Stock_Purch_Table">
+              <PropertyRef Name="Purchases_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category_Table" EntityType="Self.Category_Table" />
+          <EntitySet Name="Company_Info_Table" EntityType="Self.Company_Info_Table" />
+          <EntitySet Name="Cus_Sup_Table" EntityType="Self.Cus_Sup_Table" />
+          <EntitySet Name="Lenses_Size_Table" EntityType="Self.Lenses_Size_Table" />
+          <EntitySet Name="Order_Details_Table" EntityType="Self.Order_Details_Table" />
+          <EntitySet Name="Order_Retern_Details_Table" EntityType="Self.Order_Retern_Details_Table" />
+          <EntitySet Name="Order_Retern_Table" EntityType="Self.Order_Retern_Table" />
+          <EntitySet Name="Order_Table" EntityType="Self.Order_Table" />
+          <EntitySet Name="Patient_Table" EntityType="Self.Patient_Table" />
+          <EntitySet Name="Pay_Rev_Table" EntityType="Self.Pay_Rev_Table" />
+          <EntitySet Name="Pay_Rev_Type_Table" EntityType="Self.Pay_Rev_Type_Table" />
+          <EntitySet Name="Payback_Order_Retern_Table" EntityType="Self.Payback_Order_Retern_Table" />
+          <EntitySet Name="Payback_Order_Table" EntityType="Self.Payback_Order_Table" />
+          <EntitySet Name="Payback_Purch_Retern_Table" EntityType="Self.Payback_Purch_Retern_Table" />
+          <EntitySet Name="PayBack_Purchases_Table" EntityType="Self.PayBack_Purchases_Table" />
+          <EntitySet Name="Product_Table" EntityType="Self.Product_Table" />
+          <EntitySet Name="Purch_Retern_Details_Table" EntityType="Self.Purch_Retern_Details_Table" />
+          <EntitySet Name="Purch_Retern_Table" EntityType="Self.Purch_Retern_Table" />
+          <EntitySet Name="Purchases_Details_Table" EntityType="Self.Purchases_Details_Table" />
+          <EntitySet Name="Purchases_Table" EntityType="Self.Purchases_Table" />
+          <EntitySet Name="Safe_Table" EntityType="Self.Safe_Table" />
+          <EntitySet Name="Stock_Purch_Table" EntityType="Self.Stock_Purch_Table" />
+          <EntitySet Name="Stock_Quantity_Table" EntityType="Self.Stock_Quantity_Table" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="System_Users_Table" EntityType="Self.System_Users_Table" />
+          <EntitySet Name="Unite_Table" EntityType="Self.Unite_Table" />
+          <AssociationSet Name="FK_Product_Table_Category_Table" Association="Self.FK_Product_Table_Category_Table">
+            <End Role="Category_Table" EntitySet="Category_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Table_Cus_Sup_Table" Association="Self.FK_Order_Retern_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Table_Cus_Sup_Table" Association="Self.FK_Order_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Order_Table" EntitySet="Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Table_Cus_Sup_Table" Association="Self.FK_Patient_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Patient_Table" EntitySet="Patient_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purch_Retern_Table_Cus_Sup_Table" Association="Self.FK_Purch_Retern_Table_Cus_Sup_Table">
+            <End Role="Cus_Sup_Table" EntitySet="Cus_Sup_Table" />
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lenses_Size_Table_Patient_Table" Association="Self.FK_Lenses_Size_Table_Patient_Table">
+            <End Role="Patient_Table" EntitySet="Patient_Table" />
+            <End Role="Lenses_Size_Table" EntitySet="Lenses_Size_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Table_Order_Table" Association="Self.FK_Order_Details_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Order_Details_Table" EntitySet="Order_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Details_Table_Product_Table" Association="Self.FK_Order_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Order_Details_Table" EntitySet="Order_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Details_Table_Order_Retern_Table" Association="Self.FK_Order_Retern_Details_Table_Order_Retern_Table">
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+            <End Role="Order_Retern_Details_Table" EntitySet="Order_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Retern_Details_Table_Product_Table" Association="Self.FK_Order_Retern_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Order_Retern_Details_Table" EntitySet="Order_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Order_Retern_Table_Order_Retern_Table" Association="Self.FK_Payback_Order_Retern_Table_Order_Retern_Table">
+            <End Role="Order_Retern_Table" EntitySet="Order_Retern_Table" />
+            <End Role="Payback_Order_Retern_Table" EntitySet="Payback_Order_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Table_Order_Table" Association="Self.FK_Payback_Table_Order_Table">
+            <End Role="Order_Table" EntitySet="Order_Table" />
+            <End Role="Payback_Order_Table" EntitySet="Payback_Order_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pay_Rev_Table_Pay_Rev_Type_Table" Association="Self.FK_Pay_Rev_Table_Pay_Rev_Type_Table">
+            <End Role="Pay_Rev_Type_Table" EntitySet="Pay_Rev_Type_Table" />
+            <End Role="Pay_Rev_Table" EntitySet="Pay_Rev_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payback_Purch_Retern_Table_Purch_Retern_Table" Association="Self.FK_Payback_Purch_Retern_Table_Purch_Retern_Table">
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+            <End Role="Payback_Purch_Retern_Table" EntitySet="Payback_Purch_Retern_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PayBack_Purchases_Table_Purchases_Table" Association="Self.FK_PayBack_Purchases_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="PayBack_Purchases_Table" EntitySet="PayBack_Purchases_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Table_Unite_Table" Association="Self.FK_Product_Table_Unite_Table">
+            <End Role="Unite_Table" EntitySet="Unite_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Details_Table_Product_Table" Association="Self.FK_Purchases_Details_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Purchases_Details_Table" EntitySet="Purchases_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Purch_Table_Product_Table" Association="Self.FK_Stock_Purch_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Stock_Purch_Table" EntitySet="Stock_Purch_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Quantity_Table_Product_Table" Association="Self.FK_Stock_Quantity_Table_Product_Table">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Stock_Quantity_Table" EntitySet="Stock_Quantity_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purch_Retern_Details_Table_Purch_Retern_Table" Association="Self.FK_Purch_Retern_Details_Table_Purch_Retern_Table">
+            <End Role="Purch_Retern_Table" EntitySet="Purch_Retern_Table" />
+            <End Role="Purch_Retern_Details_Table" EntitySet="Purch_Retern_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Details_Table_Purchases_Table" Association="Self.FK_Purchases_Details_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="Purchases_Details_Table" EntitySet="Purchases_Details_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Purch_Table_Purchases_Table" Association="Self.FK_Stock_Purch_Table_Purchases_Table">
+            <End Role="Purchases_Table" EntitySet="Purchases_Table" />
+            <End Role="Stock_Purch_Table" EntitySet="Stock_Purch_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project_DBModelStoreContainer" CdmEntityContainer="Project_DBEntities">
+          <EntitySetMapping Name="Category_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Category_Table">
+              <MappingFragment StoreEntitySet="Category_Table">
+                <ScalarProperty Name="Catagory_ID" ColumnName="Catagory_ID" />
+                <ScalarProperty Name="Catagory_Name" ColumnName="Catagory_Name" />
+                <ScalarProperty Name="Catagory_Description" ColumnName="Catagory_Description" />
+                <ScalarProperty Name="Catagory_Exist" ColumnName="Catagory_Exist" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company_Info_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Company_Info_Table">
+              <MappingFragment StoreEntitySet="Company_Info_Table">
+                <ScalarProperty Name="MediaPath" ColumnName="MediaPath" />
+                <ScalarProperty Name="Compans_ID" ColumnName="Compans_ID" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Catagory" ColumnName="Company_Catagory" />
+                <ScalarProperty Name="Company_Address" ColumnName="Company_Address" />
+                <ScalarProperty Name="Company_Manager" ColumnName="Company_Manager" />
+                <ScalarProperty Name="Company_Phone1" ColumnName="Company_Phone1" />
+                <ScalarProperty Name="Company_Phone2" ColumnName="Company_Phone2" />
+                <ScalarProperty Name="Company_Phone3" ColumnName="Company_Phone3" />
+                <ScalarProperty Name="Company_Logo" ColumnName="Company_Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cus_Sup_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Cus_Sup_Table">
+              <MappingFragment StoreEntitySet="Cus_Sup_Table">
+                <ScalarProperty Name="Cus_Sup_ID" ColumnName="Cus_Sup_ID" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+                <ScalarProperty Name="Cus_Sup_Name" ColumnName="Cus_Sup_Name" />
+                <ScalarProperty Name="Cus_Sup_Company" ColumnName="Cus_Sup_Company" />
+                <ScalarProperty Name="Cus_Sup_Email" ColumnName="Cus_Sup_Email" />
+                <ScalarProperty Name="Cus_Sup_Notes" ColumnName="Cus_Sup_Notes" />
+                <ScalarProperty Name="Cus_Sup_Account" ColumnName="Cus_Sup_Account" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lenses_Size_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Lenses_Size_Table">
+              <MappingFragment StoreEntitySet="Lenses_Size_Table">
+                <ScalarProperty Name="Lenses_SizeID" ColumnName="Lenses_SizeID" />
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+                <ScalarProperty Name="Recive_Date" ColumnName="Recive_Date" />
+                <ScalarProperty Name="Lenses_Price" ColumnName="Lenses_Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Pauid" ColumnName="Pauid" />
+                <ScalarProperty Name="Reminng" ColumnName="Reminng" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="LC" ColumnName="LC" />
+                <ScalarProperty Name="LX" ColumnName="LX" />
+                <ScalarProperty Name="RS" ColumnName="RS" />
+                <ScalarProperty Name="RC" ColumnName="RC" />
+                <ScalarProperty Name="RX" ColumnName="RX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Order_Details_Table">
+              <MappingFragment StoreEntitySet="Order_Details_Table">
+                <ScalarProperty Name="Order_Details_ID" ColumnName="Order_Details_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="product_Price" ColumnName="product_Price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Retern_Details_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Order_Retern_Details_Table">
+              <MappingFragment StoreEntitySet="Order_Retern_Details_Table">
+                <ScalarProperty Name="Order_Retern_Details_ID" ColumnName="Order_Retern_Details_ID" />
+                <ScalarProperty Name="Order_Retern_ID" ColumnName="Order_Retern_ID" />
+                <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="product_Price" ColumnName="product_Price" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Retern_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Order_Retern_Table">
+              <MappingFragment StoreEntitySet="Order_Retern_Table">
+                <ScalarProperty Name="Order_Retern_ID" ColumnName="Order_Retern_ID" />
+                <ScalarProperty Name="Order_Payment_Method" ColumnName="Order_Payment_Method" />
+                <ScalarProperty Name="Client_or_Not" ColumnName="Client_or_Not" />
+                <ScalarProperty Name="Retern_Date" ColumnName="Retern_Date" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+                <ScalarProperty Name="Retern_Total" ColumnName="Retern_Total" />
+                <ScalarProperty Name="Retern_Pauid" ColumnName="Retern_Pauid" />
+                <ScalarProperty Name="Retern_Reming" ColumnName="Retern_Reming" />
+                <ScalarProperty Name="Reterns_Notes" ColumnName="Reterns_Notes" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Order_Table">
+              <MappingFragment StoreEntitySet="Order_Table">
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Order_Payment_Method" ColumnName="Order_Payment_Method" />
+                <ScalarProperty Name="Client_or_Not" ColumnName="Client_or_Not" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+                <ScalarProperty Name="Order_Total" ColumnName="Order_Total" />
+                <ScalarProperty Name="Order_Pauid" ColumnName="Order_Pauid" />
+                <ScalarProperty Name="Order_Reming" ColumnName="Order_Reming" />
+                <ScalarProperty Name="Total_Discount" ColumnName="Total_Discount" />
+                <ScalarProperty Name="Order_Notes" ColumnName="Order_Notes" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patient_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Patient_Table">
+              <MappingFragment StoreEntitySet="Patient_Table">
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient_ID" />
+                <ScalarProperty Name="Patient_Mobile" ColumnName="Patient_Mobile" />
+                <ScalarProperty Name="Patient_Name" ColumnName="Patient_Name" />
+                <ScalarProperty Name="Patient_Address" ColumnName="Patient_Address" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pay_Rev_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Pay_Rev_Table">
+              <MappingFragment StoreEntitySet="Pay_Rev_Table">
+                <ScalarProperty Name="Pay_Rev_ID" ColumnName="Pay_Rev_ID" />
+                <ScalarProperty Name="Pay_Rev_Amount" ColumnName="Pay_Rev_Amount" />
+                <ScalarProperty Name="Pay_Rev_Date" ColumnName="Pay_Rev_Date" />
+                <ScalarProperty Name="Pay_Rev_Description" ColumnName="Pay_Rev_Description" />
+                <ScalarProperty Name="Pay_Rev_Type_ID" ColumnName="Pay_Rev_Type_ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pay_Rev_Type_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Pay_Rev_Type_Table">
+              <MappingFragment StoreEntitySet="Pay_Rev_Type_Table">
+                <ScalarProperty Name="Pay_Rev_Type_ID" ColumnName="Pay_Rev_Type_ID" />
+                <ScalarProperty Name="Pay_Rev_Type_Name" ColumnName="Pay_Rev_Type_Name" />
+                <ScalarProperty Name="Pay_Rev_Type_Description" ColumnName="Pay_Rev_Type_Description" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payback_Order_Retern_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Payback_Order_Retern_Table">
+              <MappingFragment StoreEntitySet="Payback_Order_Retern_Table">
+                <ScalarProperty Name="Payback_Order_Retern_ID" ColumnName="Payback_Order_Retern_ID" />
+                <ScalarProperty Name="Order_Retern_ID" ColumnName="Order_Retern_ID" />
+                <ScalarProperty Name="Payback_Order_Retern_Value" ColumnName="Payback_Order_Retern_Value" />
+                <ScalarProperty Name="Payback_Order_Retern_Date" ColumnName="Payback_Order_Retern_Date" />
+                <ScalarProperty Name="Last_Order_Retern_Reming" ColumnName="Last_Order_Retern_Reming" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payback_Order_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Payback_Order_Table">
+              <MappingFragment StoreEntitySet="Payback_Order_Table">
+                <ScalarProperty Name="Payback_Order_ID" ColumnName="Payback_Order_ID" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Payback_Value" ColumnName="Payback_Value" />
+                <ScalarProperty Name="Payback_Date" ColumnName="Payback_Date" />
+                <ScalarProperty Name="Last_Reming" ColumnName="Last_Reming" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="PayBackFlag" ColumnName="PayBackFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payback_Purch_Retern_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Payback_Purch_Retern_Table">
+              <MappingFragment StoreEntitySet="Payback_Purch_Retern_Table">
+                <ScalarProperty Name="PayBack_Purch_Retern_ID" ColumnName="PayBack_Purch_Retern_ID" />
+                <ScalarProperty Name="Purch_Retern_ID" ColumnName="Purch_Retern_ID" />
+                <ScalarProperty Name="PayBack_Purch_Retern_Value" ColumnName="PayBack_Purch_Retern_Value" />
+                <ScalarProperty Name="PayBack_Purch_Retern_Date" ColumnName="PayBack_Purch_Retern_Date" />
+                <ScalarProperty Name="Last_Reming" ColumnName="Last_Reming" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayBack_Purchases_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.PayBack_Purchases_Table">
+              <MappingFragment StoreEntitySet="PayBack_Purchases_Table">
+                <ScalarProperty Name="PayBack_Purch_ID" ColumnName="PayBack_Purch_ID" />
+                <ScalarProperty Name="Purchases_ID" ColumnName="Purchases_ID" />
+                <ScalarProperty Name="PayBack_Purch_Value" ColumnName="PayBack_Purch_Value" />
+                <ScalarProperty Name="PayBack_Purch_Date" ColumnName="PayBack_Purch_Date" />
+                <ScalarProperty Name="Last_Reming" ColumnName="Last_Reming" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Product_Table">
+              <MappingFragment StoreEntitySet="Product_Table">
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="BareCode" ColumnName="BareCode" />
+                <ScalarProperty Name="Catagory_ID" ColumnName="Catagory_ID" />
+                <ScalarProperty Name="Unite_ID" ColumnName="Unite_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Product_Exist" ColumnName="Product_Exist" />
+                <ScalarProperty Name="Product_Image" ColumnName="Product_Image" />
+                <ScalarProperty Name="AlarmQuantity" ColumnName="AlarmQuantity" />
+                <ScalarProperty Name="Product_Size" ColumnName="Product_Size" />
+                <ScalarProperty Name="SProduct_ID" ColumnName="SProduct_ID" />
+                <ScalarProperty Name="SQuantity" ColumnName="SQuantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purch_Retern_Details_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Purch_Retern_Details_Table">
+              <MappingFragment StoreEntitySet="Purch_Retern_Details_Table">
+                <ScalarProperty Name="Purch_Retern_Details_ID" ColumnName="Purch_Retern_Details_ID" />
+                <ScalarProperty Name="Purch_Retern_ID" ColumnName="Purch_Retern_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Expire_Date" ColumnName="Expire_Date" />
+                <ScalarProperty Name="ExpireOrNot" ColumnName="ExpireOrNot" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Purch_Price" ColumnName="Purch_Price" />
+                <ScalarProperty Name="User_Price" ColumnName="User_Price" />
+                <ScalarProperty Name="Dealer_Price" ColumnName="Dealer_Price" />
+                <ScalarProperty Name="Purch_Total" ColumnName="Purch_Total" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purch_Retern_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Purch_Retern_Table">
+              <MappingFragment StoreEntitySet="Purch_Retern_Table">
+                <ScalarProperty Name="Purch_Retern_ID" ColumnName="Purch_Retern_ID" />
+                <ScalarProperty Name="Addation_Date" ColumnName="Addation_Date" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+                <ScalarProperty Name="Purch_Retern_Total" ColumnName="Purch_Retern_Total" />
+                <ScalarProperty Name="Purch_Retern_Pauid" ColumnName="Purch_Retern_Pauid" />
+                <ScalarProperty Name="Purch_Retern_Remin" ColumnName="Purch_Retern_Remin" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases_Details_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Purchases_Details_Table">
+              <MappingFragment StoreEntitySet="Purchases_Details_Table">
+                <ScalarProperty Name="Purchases_Details_ID" ColumnName="Purchases_Details_ID" />
+                <ScalarProperty Name="Purchases_ID" ColumnName="Purchases_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Expire_Date" ColumnName="Expire_Date" />
+                <ScalarProperty Name="ExpireOrNot" ColumnName="ExpireOrNot" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Purch_Price" ColumnName="Purch_Price" />
+                <ScalarProperty Name="User_Price" ColumnName="User_Price" />
+                <ScalarProperty Name="Dealer_Price" ColumnName="Dealer_Price" />
+                <ScalarProperty Name="Purch_Total" ColumnName="Purch_Total" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Purchases_Table">
+              <MappingFragment StoreEntitySet="Purchases_Table">
+                <ScalarProperty Name="Purchases_ID" ColumnName="Purchases_ID" />
+                <ScalarProperty Name="Addation_Date" ColumnName="Addation_Date" />
+                <ScalarProperty Name="Cus_Sup_Mobile" ColumnName="Cus_Sup_Mobile" />
+                <ScalarProperty Name="Purch_Total" ColumnName="Purch_Total" />
+                <ScalarProperty Name="Purch__Pauid" ColumnName="Purch__Pauid" />
+                <ScalarProperty Name="Purch_Remin" ColumnName="Purch_Remin" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Safe_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Safe_Table">
+              <MappingFragment StoreEntitySet="Safe_Table">
+                <ScalarProperty Name="Safe_ID" ColumnName="Safe_ID" />
+                <ScalarProperty Name="Safe_Amount" ColumnName="Safe_Amount" />
+                <ScalarProperty Name="Addation_Date" ColumnName="Addation_Date" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Purch_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Stock_Purch_Table">
+              <MappingFragment StoreEntitySet="Stock_Purch_Table">
+                <ScalarProperty Name="Stock_Purch_ID" ColumnName="Stock_Purch_ID" />
+                <ScalarProperty Name="Purchases_ID" ColumnName="Purchases_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Purch_Accept_States" ColumnName="Purch_Accept_States" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_Quantity_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Stock_Quantity_Table">
+              <MappingFragment StoreEntitySet="Stock_Quantity_Table">
+                <ScalarProperty Name="Stock_Quantity_ID" ColumnName="Stock_Quantity_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Project_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="System_Users_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.System_Users_Table">
+              <MappingFragment StoreEntitySet="System_Users_Table">
+                <ScalarProperty Name="Sys_User_Imagr_Path" ColumnName="Sys_User_Imagr_Path" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Sys_Username" ColumnName="Sys_Username" />
+                <ScalarProperty Name="Sys_Pass" ColumnName="Sys_Pass" />
+                <ScalarProperty Name="Sys_User_Permission" ColumnName="Sys_User_Permission" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unite_Table">
+            <EntityTypeMapping TypeName="Project_DBModel.Unite_Table">
+              <MappingFragment StoreEntitySet="Unite_Table">
+                <ScalarProperty Name="Unite_ID" ColumnName="Unite_ID" />
+                <ScalarProperty Name="Unite_Name" ColumnName="Unite_Name" />
+                <ScalarProperty Name="Unite_Description" ColumnName="Unite_Description" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

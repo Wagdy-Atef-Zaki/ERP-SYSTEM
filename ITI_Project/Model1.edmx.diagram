@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90487dcba6284ee2af61d11d1dda1bef" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_DBModel.Category_Table" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Company_Info_Table" Width="1.5" PointX="7.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Cus_Sup_Table" Width="1.5" PointX="0.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Lenses_Size_Table" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Order_Details_Table" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Order_Retern_Details_Table" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Order_Retern_Table" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Order_Table" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Patient_Table" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Pay_Rev_Table" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Pay_Rev_Type_Table" Width="1.5" PointX="7.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Payback_Order_Retern_Table" Width="1.5" PointX="8.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Payback_Order_Table" Width="1.5" PointX="5.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Payback_Purch_Retern_Table" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.PayBack_Purchases_Table" Width="1.5" PointX="5.25" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Product_Table" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Purch_Retern_Details_Table" Width="1.5" PointX="5.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Purch_Retern_Table" Width="1.5" PointX="3" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Purchases_Details_Table" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Purchases_Table" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Safe_Table" Width="1.5" PointX="9.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Stock_Purch_Table" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Stock_Quantity_Table" Width="1.5" PointX="5.25" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.System_Users_Table" Width="1.5" PointX="10.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_DBModel.Unite_Table" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="Project_DBModel.FK_Product_Table_Category_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Retern_Table_Cus_Sup_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Table_Cus_Sup_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Patient_Table_Cus_Sup_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Purch_Retern_Table_Cus_Sup_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Lenses_Size_Table_Patient_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Details_Table_Order_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Details_Table_Product_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Retern_Details_Table_Order_Retern_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Order_Retern_Details_Table_Product_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Payback_Order_Retern_Table_Order_Retern_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Payback_Table_Order_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Pay_Rev_Table_Pay_Rev_Type_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Payback_Purch_Retern_Table_Purch_Retern_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_PayBack_Purchases_Table_Purchases_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Product_Table_Unite_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Purchases_Details_Table_Product_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Stock_Purch_Table_Product_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Stock_Quantity_Table_Product_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Purch_Retern_Details_Table_Purch_Retern_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Purchases_Details_Table_Purchases_Table" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_DBModel.FK_Stock_Purch_Table_Purchases_Table" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
